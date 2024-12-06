@@ -2,16 +2,18 @@ name: "Publish documentation"
 on:
   push:
     branches:
-      - "features/dka/docs"
+      - "main"
 
 jobs:
+
   publish-documentation:
+    name: Publish documentation
     permissions:
-       id-token: "write"
-       pages: "write"
-       
+      id-token: "write"
+      pages: "write"
+
     runs-on: "ubuntu-latest"
-    
+
     steps:
       - id: "checkout"
         name: "Check out Git repository"
@@ -26,3 +28,4 @@ jobs:
       - id: "deployment"
         name: "Deploy documentation to GitHub Pages"
         uses: "actions/deploy-pages@v2"
+
